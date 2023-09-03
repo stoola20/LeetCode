@@ -14,6 +14,22 @@ class Solution {
     }
 }
 
+class HashTableSolution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var hashTable: [Int: Int] = [:]
+
+        for index in 0 ... nums.count - 1 {
+            if let anotherIndex = hashTable[target - nums[index]] {
+                return [anotherIndex, index]
+            } else {
+                hashTable[nums[index]] = index
+            }
+        }
+
+        return []
+    }
+}
+
 let solution = Solution()
 let array1 = [2, 3, 4, 5]
 let array2 = [2, 7, 11, 15]
